@@ -63,7 +63,7 @@ render() {
           <main className="container">
             <div className="text-right mb-3">
               <Link to="/clinic" className="btn custom-button">
-                Create New Clinic
+                Add Clinic
               </Link>
             </div>
             <div className="row">

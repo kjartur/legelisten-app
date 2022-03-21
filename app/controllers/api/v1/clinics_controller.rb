@@ -6,7 +6,7 @@ class Api::V1::ClinicsController < ApplicationController
 
   def create
     clinic = Clinic.create!(clinic_params)
-    if recipe
+    if clinic
       render json: clinic
     else
       render json: clinic.errors
