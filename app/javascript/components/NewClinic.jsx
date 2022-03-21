@@ -54,9 +54,63 @@ class NewClinic extends React.Component {
         }
         throw new Error("Network response was not ok.");
       })
-      .then(response => this.props.history.push(`/clinic/${response.id}`))
+      .then(response => this.props.history.push(`/clinics`))
       .catch(error => console.log(error.message));
   }
+
+  render() {
+    return (
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-sm-12 col-lg-6 offset-lg-3">
+            <h1 className="font-weight-normal mb-5">
+              Add a new clinic to our database.
+            </h1>
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label htmlFor="clinicName">Clinic name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="clinicName"
+                  className="form-control"
+                  required
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="clinicAbout">About</label>
+                <input
+                  type="text"
+                  name="about"
+                  id="clinicAbout"
+                  className="form-control"
+                  required
+                  onChange={this.onChange}
+                />
+              </div>
+              <label htmlFor="address">Address</label>
+              <textarea
+                className="form-control"
+                id="address"
+                name="address"
+                rows="5"
+                required
+                onChange={this.onChange}
+              />
+              <button type="submit" className="btn custom-button mt-3">
+                Add Clinic
+              </button>
+              <Link to="/clinics" className="btn btn-link mt-3">
+                Back to clinics
+              </Link>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default NewClinic;
