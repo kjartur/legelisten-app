@@ -14,9 +14,16 @@ class Api::V1::ClinicsController < ApplicationController
   end
 
   def show
+    if clinic
+      render json: clinic
+    else
+      render json: clinic.errors
+    end
   end
 
   def destroy
+    clinic&.destroy
+    render json: { message: 'Clinic deleted' }
   end
 
   private
