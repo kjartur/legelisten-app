@@ -31,4 +31,8 @@ class Api::V1::ClinicsController < ApplicationController
   def clinic_params
     params.permit(:name, :image, :about, :address)
   end
+
+  def clinic
+    @clinic ||= Clinic.find(params[:id])
+  end
 end
